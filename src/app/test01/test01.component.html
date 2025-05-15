@@ -1,0 +1,348 @@
+
+
+
+
+<div data-delay="5000" data-animation="cross" class="slider w-slider" data-autoplay="false" data-easing="ease"
+  data-hide-arrows="false" data-disable-swipe="false" data-autoplay-limit="0" data-nav-spacing="3" data-duration="500"
+  data-infinite="true" id="slider">
+  <div data-w-id="278c9a9f-9a29-26ca-1584-7d19946dc88c" style="opacity:1" class="mask-slider w-slider-mask">
+  
+
+
+
+     <div data-w-id="f6496f34-ea96-2c3c-2eda-75ab62c740db" class="w-slide">
+      <div class="collection-list-wrapper w-dyn-list">
+        <div role="list" class="w-dyn-items">
+          <div role="listitem" class="collection-item w-dyn-item">
+            <section id="hero" class="hero-section">
+                <div class="container">
+                  <div class="hero-content" data-aos="fade-up">
+                    <h1>Expert Dental Care for Your Perfect Smile</h1>
+                    <p class="lead">Clínica Boccio offers comprehensive dental services using state-of-the-art technology and personalized care.</p>
+                    <div class="cta-buttons">
+                      <button class="primary-btn" (click)="openAppointmentForm()">Book Appointment</button>
+                      <button class="outline-btn" (click)="scrollToSection('treatments')">Our Treatments</button>
+                    </div>
+                  </div>
+                  <div class="hero-image" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="placeholder-image">
+                      <i class="fas fa-tooth"></i>
+                      <p>Dental Care at Clínica Boccio</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="scroll-indicator" (click)="scrollToSection('treatments')">
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+              </section>
+              
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div data-w-id="f6496f34-ea96-2c3c-2eda-75ab62c740db" class="w-slide">
+        <div class="collection-list-wrapper w-dyn-list">
+          <div role="list" class="w-dyn-items">
+            <div role="listitem" class="collection-item w-dyn-item">
+              
+  <!-- Appointment Form Overlay (Hidden by default) -->
+<div class="appointment-overlay" [class.active]="appointmentFormVisible">
+    <div class="appointment-form" data-aos="zoom-in">
+      <button class="close-btn" (click)="closeAppointmentForm()">
+        <i class="fas fa-times"></i>
+      </button>
+      <h2>Book Your Appointment</h2>
+      <form (submit)="submitAppointmentForm($event)">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+        <div class="form-group">
+          <label for="date">Preferred Date</label>
+          <input type="date" id="date" name="date" required>
+        </div>
+        <div class="form-group">
+          <label for="time">Preferred Time</label>
+          <select id="time" name="time" required>
+            <option value="">Select a time</option>
+            <option value="morning">Morning (9AM - 12PM)</option>
+            <option value="afternoon">Afternoon (1PM - 5PM)</option>
+            <option value="evening">Evening (6PM - 8PM)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="service">Treatment</label>
+          <select id="service" name="service" required>
+            <option value="">Select a treatment</option>
+            <option value="checkup">Regular Checkup</option>
+            <option value="cleaning">Teeth Cleaning</option>
+            <option value="whitening">Teeth Whitening</option>
+            <option value="implants">Dental Implants</option>
+            <option value="orthodontics">Orthodontics</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Additional Information</label>
+          <textarea id="message" name="message" rows="3"></textarea>
+        </div>
+        <button type="submit" class="primary-btn w-100">Schedule Appointment</button>
+      </form>
+    </div>
+  </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+
+      <div data-w-id="f6496f34-ea96-2c3c-2eda-75ab62c740db" class="w-slide">
+        <div class="collection-list-wrapper w-dyn-list">
+          <div role="list" class="w-dyn-items">
+            <div role="listitem" class="collection-item w-dyn-item">
+              
+  <!-- Treatments Section -->
+<section id="treatments" class="treatments-section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <h2>Our Dental Treatments</h2>
+        <p>We offer a comprehensive range of dental services to meet all your oral health needs.</p>
+      </div>
+      <div class="treatments-grid">
+        @for (treatment of treatments; track treatment.title) {
+          <div class="treatment-card" >
+            <div class="treatment-icon">
+              <i class="{{ treatment.icon }}"></i>
+            </div>
+            <h3>{{ treatment.title }}</h3>
+            <p>{{ treatment.description }}</p>
+            <button class="text-btn" (click)="scrollToSection('contact')">Learn More <i class="fas fa-arrow-right"></i></button>
+          </div>
+        }
+      </div>
+    </div>
+    <div class="navigation-buttons">
+      <button class="nav-btn prev" (click)="scrollToSection('hero')">
+        <i class="fas fa-chevron-up"></i> Previous
+      </button>
+      <button class="nav-btn next" (click)="scrollToSection('technology')">
+        Next <i class="fas fa-chevron-down"></i>
+      </button>
+    </div>
+  </section>
+  
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+
+
+      <div data-w-id="f6496f34-ea96-2c3c-2eda-75ab62c740db" class="w-slide">
+        <div class="collection-list-wrapper w-dyn-list">
+          <div role="list" class="w-dyn-items">
+            <div role="listitem" class="collection-item w-dyn-item">
+              
+  <!-- Technology Section -->
+<section id="technology" class="technology-section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <h2>Advanced Dental Technology</h2>
+        <p>We utilize the latest dental technology to ensure the best treatment outcomes for our patients.</p>
+      </div>
+      <div class="technology-grid">
+        @for (tech of technologies; track tech.title) {
+          <div class="technology-card" data-aos="fade-up" >
+            <div class="technology-image">
+              <img src="{{ tech.image }}" alt="{{ tech.title }}">
+            </div>
+            <div class="technology-content">
+              <h3>{{ tech.title }}</h3>
+              <p>{{ tech.description }}</p>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+    <div class="navigation-buttons">
+      <button class="nav-btn prev" (click)="scrollToSection('treatments')">
+        <i class="fas fa-chevron-up"></i> Previous
+      </button>
+      <button class="nav-btn next" (click)="scrollToSection('before-after')">
+        Next <i class="fas fa-chevron-down"></i>
+      </button>
+    </div>
+  </section>
+  
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+
+
+      <div data-w-id="f6496f34-ea96-2c3c-2eda-75ab62c740db" class="w-slide">
+        <div class="collection-list-wrapper w-dyn-list">
+          <div role="list" class="w-dyn-items">
+            <div role="listitem" class="collection-item w-dyn-item">
+              <!-- Before & After Section -->
+<section id="before-after" class="before-after-section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <h2>Transformation Gallery</h2>
+        <p>See the remarkable results of our dental treatments.</p>
+      </div>
+      <div class="before-after-grid">
+        <div class="before-after-item" data-aos="fade-up">
+          <h3>Teeth Whitening</h3>
+          <div class="before-after-container">
+            <div class="before-image">
+              <img src="assets/before-whitening.jpg" alt="Before Teeth Whitening">
+              <span class="label">Before</span>
+            </div>
+            <div class="after-image">
+              <img src="assets/after-whitening.jpg" alt="After Teeth Whitening">
+              <span class="label">After</span>
+            </div>
+          </div>
+        </div>
+        <div class="before-after-item" data-aos="fade-up" data-aos-delay="100">
+          <h3>Dental Implants</h3>
+          <div class="before-after-container">
+            <div class="before-image">
+              <img src="assets/before-implants.jpg" alt="Before Dental Implants">
+              <span class="label">Before</span>
+            </div>
+            <div class="after-image">
+              <img src="assets/after-implants.jpg" alt="After Dental Implants">
+              <span class="label">After</span>
+            </div>
+          </div>
+        </div>
+        <div class="before-after-item" data-aos="fade-up" data-aos-delay="200">
+          <h3>Orthodontics</h3>
+          <div class="before-after-container">
+            <div class="before-image">
+              <img src="assets/before-ortho.jpg" alt="Before Orthodontics">
+              <span class="label">Before</span>
+            </div>
+            <div class="after-image">
+              <img src="assets/after-ortho.jpg" alt="After Orthodontics">
+              <span class="label">After</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navigation-buttons">
+      <button class="nav-btn prev" (click)="scrollToSection('technology')">
+        <i class="fas fa-chevron-up"></i> Previous
+      </button>
+      <button class="nav-btn next" (click)="scrollToSection('location')">
+        Next <i class="fas fa-chevron-down"></i>
+      </button>
+    </div>
+  </section>
+  
+  
+            </div>
+          </div>
+        </div>
+      </div>
+  
+
+
+
+  </div>
+  <div id="w-slider-arrow-left" class="left-arrow w-slider-arrow-left">
+    <div class="arrow w-embed"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9.13 15.61">
+        <defs>
+          <style>
+            .cls-1 {
+              fill: currentColor;
+            }
+          </style>
+        </defs>
+        <g id="Layer_1" data-name="Layer 1">
+          <polygon class="cls-1"
+            points="8.42 10.34 5.06 13.69 5.06 0 4.06 0 4.06 13.69 0.71 10.34 0 11.04 4.56 15.61 9.13 11.04 8.42 10.34" />
+        </g>
+      </svg></div>
+  </div>
+  <div id="w-slider-arrow-right" class="right-arrow w-slider-arrow-right">
+    <div class="arrow w-embed"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9.13 15.61">
+        <defs>
+          <style>
+            .cls-1 {
+              fill: currentColor;
+            }
+          </style>
+        </defs>
+        <g id="Layer_1" data-name="Layer 1">
+          <polygon class="cls-1"
+            points="8.42 10.34 5.06 13.69 5.06 0 4.06 0 4.06 13.69 0.71 10.34 0 11.04 4.56 15.61 9.13 11.04 8.42 10.34" />
+        </g>
+      </svg></div>
+  </div>
+  <div class="slide-nav w-slider-nav w-round">
+    <div class="w-slider-dot" data-wf-ignore="" aria-label="Show slide 1 of 6" aria-pressed="false" role="button"
+      tabindex="-1" ></div>
+    <div class="w-slider-dot" data-wf-ignore="" aria-label="Show slide 2 of 6" aria-pressed="false" role="button"
+      tabindex="-1" ></div>
+    <div class="w-slider-dot" data-wf-ignore="" aria-label="Show slide 3 of 6" aria-pressed="false" role="button"
+      tabindex="-1" ></div>
+    <div class="w-slider-dot" data-wf-ignore="" aria-label="Show slide 4 of 6" aria-pressed="false" role="button"
+      tabindex="-1" style="margin-left: 3px; margin-right: 3px;"></div>
+    <div class="w-slider-dot w-active" data-wf-ignore="" aria-label="Show slide 5 of 6" aria-pressed="true"
+      role="button" tabindex="0" ></div>
+    <div class="w-slider-dot" data-wf-ignore="" aria-label="Show slide 6 of 6" aria-pressed="false" role="button"
+      tabindex="-1" ></div>
+  </div>
+  <div class="w-embed"></div>
+  <div class="dots-colors-slider w-embed">
+    <style>
+      .w-slider-dot {
+        background: none;
+        border: 1px solid #0948eb;
+        height: 12px;
+        width: 12px;
+        margin-top: 4px;
+
+      }
+
+      .w-slider-dot.w-active {
+        background: #0948eb;
+
+      }
+    </style>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,215 @@
+
+
+<div class="top-header" style="color:black">
+    <div class="social-links">
+        <a style="color:black"><i class="fab fa-facebook-f"></i></a>
+        <a style="color:black"><i class="fab fa-instagram"></i></a>
+        <a class="btcit" style="text-decoration: none;">959 24 05 74</a>
+        <a style="text-decoration: none;color:black">de 9.00h a 21h</a>
+        <a style="color:black"><i class="fab fa-twitter"></i></a>
+        <a style="color:black"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+</div>
+
+<header>
+    <div class="nav-container">
+        <nav>
+            <ul id="menu">
+                <li><a data-index="0" class="nav-link active">Inicio</a></li>
+                <li>
+                    <a data-index="1" class="nav-link">Servicios <i class="fas fa-chevron-down"></i></a>
+                    <ul class="submenu">
+                        <li><a>Limpieza Dental</a></li>
+                        <li><a>Implantes Dentales</a></li>
+                        <li><a>Ortodoncia</a></li>
+                        <li><a>Blanqueamiento</a></li>
+                        <li><a>Odontología Estética</a></li>
+                    </ul>
+                </li>
+                <li><a data-index="2" class="nav-link">Sobre Nosotros</a></li>
+                <li><a data-index="3" class="nav-link">Testimonios</a></li>
+                <li><a data-index="4" class="nav-link">Contacto</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- Dot navigation -->
+<div class="section-nav">
+    <div class="nav-dot active" data-index="0"></div>
+    <div class="nav-dot" data-index="1"></div>
+    <div class="nav-dot" data-index="2"></div>
+    <div class="nav-dot" data-index="3"></div>
+    <div class="nav-dot" data-index="4"></div>
+</div>
+
+<!-- Section controls -->
+<div class="section-controls">
+    <div class="section-control prev-section"><i class="fas fa-chevron-up"></i></div>
+    <div class="section-control next-section"><i class="fas fa-chevron-down"></i></div>
+</div>
+
+<!-- Sections container -->
+<div id="sections-container">
+    <!-- Section 1 -->
+    <div class="section active" id="section1" data-index="0">
+        <div class="container">
+            <h1 class="animate-fadeIndown delay-400 menutext">Clínica Dental Huelva</h1>
+            <div class="subtitle animate-fadeIndown delay-300">CLÍNICA DENTAL DE CONFIANZA Número 1 En Huelva</div>
+            <p class="animate-fadeInUp delay-100 text-light">En nuestra clínica dental nos especializamos en ofrecer
+                tratamientos de alta calidad con tecnología avanzada y un equipo profesional dedicado a tu bienestar.
+            </p>
+            <div class="button-container">
+                <a class="btn btn-outline animate-fadeInUp delay-200" id="reservaCita">Reservar Cita</a>
+                <a class="btn btn-outline animate-fadeInUp delay-200" id="conoceMas">Conoce Más</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 2 -->
+    <div class="section" id="section2" data-index="1">
+        <div class="container">
+            <h2 class="animate-fadeInRight delay-100">Nuestra experiencia y formación</h2>
+            <p class="animate-fadeInLeft delay-200">Contamos con un equipo de profesionales altamente cualificados.</p>
+            
+            <!-- Content for section 2 -->
+        </div>
+    </div>
+
+    <!-- Section 3 -->
+    <div class="section" id="section3" data-index="2">
+        <div class="container">
+            <h2 class="animate-fadeInUp delay-100">Servicios Dentales</h2>
+            <p class="animate-fadeInUp delay-200">Ofrecemos una amplia gama de servicios dentales para toda la familia.</p>
+            
+            <!-- Content for section 3 -->
+        </div>
+    </div>
+
+    <!-- Section 4 -->
+    <div class="section" id="section4" data-index="3">
+        <div class="container">
+            <h2 class="animate-fadeInUp delay-100">Sobre Nosotros</h2>
+            <p class="animate-fadeInUp delay-200">Nuestro equipo de profesionales está dedicado a brindarte la mejor atención.</p>
+            
+            <!-- Content for section 4 -->
+        </div>
+    </div>
+
+    <!-- Section 5 -->
+    <div class="section" id="section5" data-index="4">
+        <div class="container">
+            <h2 class="animate-fadeInUp delay-100">Contacto</h2>
+            <p class="animate-fadeInUp delay-200" style="color: white;">
+                Llámanos al 959 24 05 74. O si lo prefieres te llamamos:</p>
+            
+            <!-- Content for section 5 -->
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const sections = document.querySelectorAll('.section');
+        const navDots = document.querySelectorAll('.nav-dot');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const prevBtn = document.querySelector('.prev-section');
+        const nextBtn = document.querySelector('.next-section');
+        
+        let currentIndex = 0;
+        let isScrolling = false;
+        let scrollTimeout;
+
+        // Initialize
+        showSection(currentIndex);
+
+        // Navigation dots click
+        navDots.forEach(dot => {
+            dot.addEventListener('click', function() {
+                const index = parseInt(this.getAttribute('data-index'));
+                showSection(index);
+            });
+        });
+
+        // Nav links click
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const index = parseInt(this.getAttribute('data-index'));
+                showSection(index);
+            });
+        });
+
+        // Previous/next buttons
+        prevBtn.addEventListener('click', () => navigate(-1));
+        nextBtn.addEventListener('click', () => navigate(1));
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowUp') {
+                navigate(-1);
+                e.preventDefault();
+            } else if (e.key === 'ArrowDown') {
+                navigate(1);
+                e.preventDefault();
+            }
+        });
+
+        // Wheel navigation
+        window.addEventListener('wheel', function(e) {
+            if (isScrolling) return;
+            
+            clearTimeout(scrollTimeout);
+            
+            if (e.deltaY > 0) {
+                navigate(1);
+            } else {
+                navigate(-1);
+            }
+            
+            // Prevent multiple triggers
+            isScrolling = true;
+            scrollTimeout = setTimeout(() => {
+                isScrolling = false;
+            }, 1000);
+        }, { passive: false });
+
+        // Show specific section
+        function showSection(index) {
+            // Validate index
+            if (index < 0) index = 0;
+            if (index >= sections.length) index = sections.length - 1;
+            
+            // Update current index
+            currentIndex = index;
+            
+            // Hide all sections
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show current section
+            sections[index].classList.add('active');
+            
+            // Update navigation dots
+            navDots.forEach(dot => {
+                dot.classList.remove('active');
+            });
+            navDots[index].classList.add('active');
+            
+            // Update nav links
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+            navLinks[index].classList.add('active');
+            
+            // Scroll to section
+            sections[index].scrollTo(0, 0);
+        }
+
+        // Navigate to next/prev section
+        function navigate(direction) {
+            showSection(currentIndex + direction);
+        }
+    });
+</script>
