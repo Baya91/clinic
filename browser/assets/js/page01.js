@@ -422,8 +422,19 @@ document.addEventListener('DOMContentLoaded', function() {
     }, { passive: false }); // passive: false to be able to use preventDefault
     
     // Event for mobile menu
-    mobileMenuBtn.addEventListener('click', function() {
-        menuNav.classList.toggle('show');
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const menuNav = document.querySelector('.menu-nav');
+        
+        if (mobileMenuBtn && menuNav) {
+            mobileMenuBtn.addEventListener('click', function() {
+                menuNav.classList.toggle('show');
+            });
+        } else {
+            console.error('One or more elements not found:');
+            console.log('Mobile Menu Button:', mobileMenuBtn);
+            console.log('Menu Navigation:', menuNav);
+        }
     });
     
     // Close mobile menu if clicking outside it
